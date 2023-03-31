@@ -1,5 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import MetaData
+from sqlalchemy import MetaData, func
 
 metadata = MetaData(naming_convention={
     "fk": "fk_%(table_name)s_%(column_0_name)s_%(referred_table_name)s",
@@ -11,13 +11,42 @@ class Zookeeper(db.Model):
     __tablename__ = 'zookeepers'
 
     id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String)
+    birthday = db.Column(db.DateTime, server_default=func.now())
+    created_at = db.Column(db.DateTime, server_default=func.now())
+    updated_at = db.Column(db.DateTime, onupdate=func.now())
+    
+    animals = db.relationship("Animal", backref="zookeeper")
+    
+    def __repr__(self):
+        return f'<Zookeeper {self.name}, id {self.id}>, birthday {self.birthday}' \
+            + f"In charge of the following animals: {[animal.name for animal in self.animals]}"
 
 class Enclosure(db.Model):
     __tablename__ = 'enclosures'
 
     id = db.Column(db.Integer, primary_key=True)
+    environment = db.Column(db.String)
+    open_to_visitors = db.Column(db.Boolean)
+    
+    animals = db.relationship("Animal", backref="enclosure")
+
+    def __repr__(self):
+        return f'<Enclosure id {self.id}' \
+            + f'Environment: {self.environment}' \
+            + f'Open To Visitors: {"Yes" if self.open_to_visitors else "No"}>' \
+            + f"You might see the following animals: {[animal.name for animal in self.animals]}"
 
 class Animal(db.Model):
     __tablename__ = 'animals'
 
     id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String)
+    species = db.Column(db.String)
+    zookeeper_id = db.Column(db.Integer, db.ForeignKey("zookeepers.id"))
+    enclosure_id = db.Column(db.Integer, db.ForeignKey("enclosures.id"))
+
+    def __repr__(self):
+        return f'<Animal {self.name}, id {self.id}>, species {self.species}' \
+            + f'Zookeeper in charge: {self.zookeeper.name}' \
+            + f'Environment: {self.enclosure.environment}>'
