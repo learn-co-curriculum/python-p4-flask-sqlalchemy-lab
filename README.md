@@ -55,8 +55,8 @@ Instructions begin here:
   `zookeeper_by_id`, and `enclosure_by_id`. Their routes should be
   `animal/<int:id>`, `zookeeper/<int:id>`, and `enclosure/<int:id>`,
   respectively.
-- Each view should display all attributes as line items (`ul`). If there is a
-  one-to-many relationship, each of the many should have its own line item.
+- Each view should display each attribute as an unordered list (`ul`). If there is a
+  one-to-many relationship, each of the many should have its own unordered list.
 - A seed script, `server/seed.py`, has been provided to generate test data once your
   models have been built and migrated to a database. Make sure to run this so
   that there are resources for the test suite to visit.
