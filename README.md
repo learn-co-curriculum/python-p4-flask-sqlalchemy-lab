@@ -6,27 +6,27 @@
 - Extend a Flask application to meet the unique requirements of different
   projects.
 
-***
+---
 
 ## Key Vocab
 
-- **Web Framework**: software that is designed to support the development of
-  web applications. Web frameworks provide built-in tools for generating web
+- **Web Framework**: software that is designed to support the development of web
+  applications. Web frameworks provide built-in tools for generating web
   servers, turning Python objects into HTML, and more.
 - **Extension**: a package or module that adds functionality to a Flask
   application that it does not have by default.
 - **Request**: an attempt by one machine to contact another over the internet.
-- **Client**: an application or machine that accesses services being provided
-  by a server through the internet.
+- **Client**: an application or machine that accesses services being provided by
+  a server through the internet.
 - **Web Server**: a combination of software and hardware that uses Hypertext
-  Transfer Protocol (HTTP) and other protocols to respond to requests made
-  over the internet.
-- **Web Server Gateway Interface (WSGI)**: an interface between web servers
-  and applications.
-- **Template Engine**: software that takes in strings with tokenized
-  values, replacing the tokens with their values as output in a web browser.
+  Transfer Protocol (HTTP) and other protocols to respond to requests made over
+  the internet.
+- **Web Server Gateway Interface (WSGI)**: an interface between web servers and
+  applications.
+- **Template Engine**: software that takes in strings with tokenized values,
+  replacing the tokens with their values as output in a web browser.
 
-***
+---
 
 ## Instructions
 
@@ -40,9 +40,9 @@ Instructions begin here:
 - Design a Flask application that displays information from a database created
   using Flask-SQLAlchemy and Flask-Migrate.
 - `flask db init` has already been run. You will need to direct your Flask app
-  to a database at `app.db`, create models, run a migration with `flask db
-  revision --autogenerate -m'<your message>'` and create the database file with
-  `flask db upgrade`.
+  to a database at `app.db`, create models, run a migration with
+  `flask db revision --autogenerate -m'<your message>'` and create the database
+  file with `flask db upgrade`.
 - Your database should represent a zoo. There should be three tables: `animals`,
   `zookeepers`, and `enclosures`.
 - The `Animal` model should contain a String `name`, a String `species`, a
@@ -61,9 +61,9 @@ Instructions begin here:
   respectively.
 - Each view should display all attributes as line items (`ul`). If there is a
   one-to-many relationship, each of the many should have its own line item.
-- A seed script, `server/seed.py`, has been provided to generate test data once your
-  models have been built and migrated to a database. Make sure to run this so
-  that there are resources for the test suite to visit.
+- A seed script, `server/seed.py`, has been provided to generate test data once
+  your models have been built and migrated to a database. Make sure to run this
+  so that there are resources for the test suite to visit.
 
 Once all of your tests are passing, commit and push your work using `git` to
 submit.
@@ -73,23 +73,17 @@ submit.
 #### Animal View
 
 ![animal ID 1, name Logan, species Snake, zookeeper Dylan Taylor,
-enclosure trees](
-https://curriculum-content.s3.amazonaws.com/python/flask-sqlalchemy-lab-1.png
-)
+enclosure trees](https://curriculum-content.s3.amazonaws.com/python/flask-sqlalchemy-lab-1.png)
 
 #### Zookeeper View
 
-![zookeeper name Stephanie Contreras, birthday 1996-9-20, 6 animals](
-https://curriculum-content.s3.amazonaws.com/python/flask-sqlalchemy-lab-2.png
-)
+![zookeeper name Stephanie Contreras, birthday 1996-9-20, 6 animals](https://curriculum-content.s3.amazonaws.com/python/flask-sqlalchemy-lab-2.png)
 
 #### Enclosure View
 
-![enclosure with pond environment, not open to visitors, 8 animals](
-https://curriculum-content.s3.amazonaws.com/python/flask-sqlalchemy-lab-3.png
-)
+![enclosure with pond environment, not open to visitors, 8 animals](https://curriculum-content.s3.amazonaws.com/python/flask-sqlalchemy-lab-3.png)
 
-***
+---
 
 ## Resources
 
